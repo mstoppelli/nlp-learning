@@ -14,8 +14,8 @@ class KerasModel(models.Model):
         self.elmo_embedding_dim = elmo_embedding_dim
 
         # embedding layers
-        self.sentence_embeddings, _ = create_embed_layer(obj, vocab_size, 0, False)
-        self.context_embeddings, _ = create_embed_layer(obj, vocab_size, 0, False)
+        self.sentence_embeddings, _ = create_embed_layer(obj, vocab_size, 0)
+        self.context_embeddings, _ = create_embed_layer(obj, vocab_size, 0)
 
         #LSTM layers
         self.LSTM1 = layers.Bidirectional(layers.LSTM(self.hidden_dim, num_layers=self.num_layers, dropout=hp.enc_dropout))
